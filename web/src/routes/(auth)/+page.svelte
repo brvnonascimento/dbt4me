@@ -42,6 +42,7 @@
 				<Label>E-mail</Label>
 
 				<input
+					name="email"
 					placeholder="example@mail.com"
 					required
 					bind:value={$form.email}
@@ -59,10 +60,12 @@
 				<Label>Password</Label>
 
 				<input
+					name="password"
 					placeholder="****************"
 					type="password"
 					required
 					bind:value={$form.password}
+					{...$constraints.password}
 				/>
 
 				<InputHelperText isInvalid={!!$errors.email}

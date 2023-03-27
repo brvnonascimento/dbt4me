@@ -1,13 +1,12 @@
-import type { PageServerLoad } from './$types';
 import { auth, createUserInputSchema } from '$lib/server/shared/infra/auth';
 import { fail, redirect, type Actions } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms/server';
 
-export const load = (async (event) => {
+export const load = async (event) => {
 	const form = await superValidate(event, createUserInputSchema);
 
 	return { form };
-}) satisfies PageServerLoad;
+};
 
 export const actions: Actions = {
 	default: async (event) => {

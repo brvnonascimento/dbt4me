@@ -41,6 +41,7 @@
 				<Label>E-mail</Label>
 
 				<input
+					name="email"
 					placeholder="example@mail.com"
 					required
 					autocomplete="off"
@@ -61,11 +62,13 @@
 				<Label>Password</Label>
 
 				<input
+					name="password"
 					placeholder="****************"
 					type="password"
 					required
 					autocomplete="off"
 					bind:value={$form.password}
+					{...$constraints.password}
 				/>
 
 				<InputHelperText isInvalid={!!$errors.password}
