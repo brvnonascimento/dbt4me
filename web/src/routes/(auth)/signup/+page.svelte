@@ -43,7 +43,6 @@
 				<input
 					name="email"
 					placeholder="example@mail.com"
-					required
 					autocomplete="off"
 					bind:value={$form.email}
 					{...$constraints.email}
@@ -65,7 +64,6 @@
 					name="password"
 					placeholder="****************"
 					type="password"
-					required
 					autocomplete="off"
 					bind:value={$form.password}
 					{...$constraints.password}

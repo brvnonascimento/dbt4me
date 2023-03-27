@@ -44,7 +44,6 @@
 				<input
 					name="email"
 					placeholder="example@mail.com"
-					required
 					bind:value={$form.email}
 					{...$constraints.email}
 				/>
@@ -63,7 +62,6 @@
 					name="password"
 					placeholder="****************"
 					type="password"
-					required
 					bind:value={$form.password}
 					{...$constraints.password}
 				/>
