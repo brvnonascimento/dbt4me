@@ -12,7 +12,9 @@
 
 	export let data: PageData;
 
-	const { form, enhance, errors, constraints } = superForm(data.form);
+	const { form, enhance, errors, constraints } = superForm(data.form, {
+		taintedMessage: null
+	});
 </script>
 
 <div
@@ -46,7 +48,7 @@
 					{...$constraints.email}
 				/>
 
-				<InputHelperText
+				<InputHelperText isInvalid={!!$errors.email}
 					>{#if $errors.email}
 						{$errors.email}
 					{/if}
@@ -63,7 +65,7 @@
 					bind:value={$form.password}
 				/>
 
-				<InputHelperText
+				<InputHelperText isInvalid={!!$errors.email}
 					>{#if $errors.password}
 						{$errors.password}
 					{/if}

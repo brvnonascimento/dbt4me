@@ -42,10 +42,10 @@
 	--color-primary: var(--color-purple-500);
 	/* */
 
-	/* Text styles */
 	--color-body-text: hsla(0, 0%, 0%, 1);
 	--color-heading-text: hsla(0, 0%, 0%, 1);
 	--color-body-text-inverted: hsla(0, 0%, 100%, 1);
+	--color-error: var(--color-red-700);
 
 	--font-family-body: 'Quicksand', sans-serif;
 	--font-family-heading: 'Quicksand', sans-serif;
@@ -152,14 +152,19 @@ input {
 	background: none;
 	color: var(--color-body-text);
 	font: inherit;
-	border: 1px solid currentColor;
+	border: 1px solid var(--color-body-text);
 	padding: 0.625rem;
 
 	&:placeholder {
 		color: var(--color-orange-800);
 	}
 
+	&:hover {
+		border: 1px solid var(--color-purple-700);
+	}
+
 	&:focus {
 		outline: none;
+		border: 1px solid var(--color-purple-600);
 	}
 }

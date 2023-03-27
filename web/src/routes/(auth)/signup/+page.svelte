@@ -11,7 +11,9 @@
 
 	export let data: PageData;
 
-	const { form, enhance, errors, constraints } = superForm(data.form);
+	const { form, enhance, errors, constraints } = superForm(data.form, {
+		taintedMessage: `You haven't completed registration. Are you sure you want to leave?`
+	});
 </script>
 
 <div
@@ -46,7 +48,7 @@
 					{...$constraints.email}
 				/>
 
-				<InputHelperText
+				<InputHelperText isInvalid={!!$errors.email}
 					>{#if $errors.email}
 						{$errors.email}
 					{:else}
@@ -66,13 +68,13 @@
 					bind:value={$form.password}
 				/>
 
-				<InputHelperText
+				<InputHelperText isInvalid={!!$errors.password}
 					>{#if $errors.password}
 						{$errors.password}
 					{:else}
 						At least 8 characters combining numbers and special characters like @!#$%
-					{/if}</InputHelperText
-				>
+					{/if}
+				</InputHelperText>
 			</InputField>
 		</FormFieldGroup>
 
