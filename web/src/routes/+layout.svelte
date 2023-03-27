@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<meta name="theme-color" content="#fed0a1" />
+	<meta name="theme-color" content="#fec082" />
 	<title>dbt4me</title>
 </svelte:head>
 
