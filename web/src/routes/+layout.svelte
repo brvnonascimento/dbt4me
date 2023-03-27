@@ -8,6 +8,11 @@
 	handleSession(page);
 </script>
 
+<svelte:head>
+	<meta name="theme-color" content="#ecd96f" />
+	<title>dbt4me</title>
+</svelte:head>
+
 <!-- <header>
 	{#if $user?.userId}
 		<form use:enhance method="POST" action="/logout">
