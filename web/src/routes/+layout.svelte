@@ -1,0 +1,21 @@
+<script lang="ts">
+	import '@fontsource/quicksand';
+	import '../styles/globals.css';
+
+	import { page } from '$app/stores';
+	import { handleSession } from '@lucia-auth/sveltekit/client';
+
+	handleSession(page);
+</script>
+
+<!-- <header>
+	{#if $user?.userId}
+		<form use:enhance method="POST" action="/logout">
+			<input type="submit" value="Sign out" />
+		</form>
+	{:else}
+		<a href="/">Login</a>
+	{/if}
+</header> -->
+
+<slot />

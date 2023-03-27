@@ -1,0 +1,39 @@
+{
+  "name": "dbt-diary-card",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "web",
+    "native"
+  ],
+  "scripts": {
+    "web": "yarn workspace web",
+    "native": "yarn workspace native",
+    "lint": "prettier --plugin-search-dir . --check . && eslint .",
+    "format": "prettier --plugin-search-dir . --write ."
+  },
+  "devDependencies": {
+    "@daltontan/postcss-import-json": "^1.1.0",
+    "@playwright/test": "^1.32.1",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "nativescript": "^8.4.0",
+    "postcss-custom-media": "^8.0.2",
+    "postcss-each": "^1.1.0",
+    "postcss-each-variables": "^0.3.0",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-nested": "^6.0.0",
+    "postcss-preset-env": "^7.8.2",
+    "postcss-subgrid": "^1.1.0",
+    "prettier": "^2.8.0",
+    "prettier-plugin-svelte": "^2.8.1",
+    "typescript": "^5.0.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "zod": "^3.21.4"
+  }
+}
