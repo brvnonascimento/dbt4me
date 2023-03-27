@@ -1,28 +1,33 @@
 import { auth, createUserInputSchema } from '$lib/server/shared/infra/auth';
 import { fail, redirect, type Actions } from '@sveltejs/kit';
+import { superValidate } from 'sveltekit-superforms/server';
+
+import type { PageServerLoad } from './$types';
+
+export const load = (async (event) => {
+	const form = await superValidate(event, createUserInputSchema);
+
+	return { form };
+}) satisfies PageServerLoad;
 
 export const actions: Actions = {
-	default: async ({ request, locals }) => {
-		const data = await request.formData();
+	default: async (event) => {
+		const form = await superValidate(event, createUserInputSchema);
 
-		const email = data.get('email');
-		const password = data.get('password');
-
-		const userInput = createUserInputSchema.safeParse({ email, password });
-
-		if (!userInput.success) {
+		if (!form.valid) {
 			return fail(400, {
-				message: 'Invalid input',
-				error: userInput.error
+				form
 			});
 		}
 
+		const { data } = form;
+
 		try {
-			const key = await auth.useKey('email', userInput.data.email, userInput.data.password);
+			const key = await auth.useKey('email', data.email, data.password);
 
 			const session = await auth.createSession(key.userId);
 
-			locals.setSession(session);
+			event.locals.setSession(session);
 		} catch (error) {
 			// invalid credentials
 			return fail(400);
