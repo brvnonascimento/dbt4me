@@ -4,9 +4,10 @@
 	export let name = '';
 	export let required = false;
 	export let autocomplete: 'on' | 'off' | 'email' | 'password' = 'on';
+	export let value: string | undefined = undefined;
 </script>
 
-<input {type} {placeholder} {name} {required} {autocomplete} />
+<input {type} {placeholder} {name} {required} {autocomplete} {value} />
 
 <style lang="postcss">
 	input {

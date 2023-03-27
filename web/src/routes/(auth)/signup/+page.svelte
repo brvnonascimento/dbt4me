@@ -1,11 +1,17 @@
-<script>
-	import { enhance } from '$app/forms';
+<script lang="ts">
 	import Button from '$lib/components/Button/Button.svelte';
-	import EmailField from '$lib/components/Form/Fields/EmailField.svelte';
 	import FormFieldGroup from '$lib/components/Form/Fields/FormFieldGroup.svelte';
-	import PasswordField from '$lib/components/Form/Fields/PasswordField.svelte';
+	import InputField from '$lib/components/Form/Input/InputField.svelte';
+	import InputHelperText from '$lib/components/Form/Input/InputHelperText.svelte';
+	import Label from '$lib/components/Form/Input/Label.svelte';
 	import { expoInOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
+	import { superForm } from 'sveltekit-superforms/client';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
+
+	const { form, enhance, errors, constraints } = superForm(data.form);
 </script>
 
 <div
@@ -29,8 +35,45 @@
 
 	<form method="POST" use:enhance>
 		<FormFieldGroup>
-			<EmailField autocomplete="off" />
-			<PasswordField autocomplete="off" />
+			<InputField>
+				<Label>E-mail</Label>
+
+				<input
+					placeholder="example@mail.com"
+					required
+					autocomplete="off"
+					bind:value={$form.email}
+					{...$constraints.email}
+				/>
+
+				<InputHelperText
+					>{#if $errors.email}
+						{$errors.email}
+					{:else}
+						We'll never share your email with anyone else.
+					{/if}</InputHelperText
+				>
+			</InputField>
+
+			<InputField>
+				<Label>Password</Label>
+
+				<input
+					placeholder="****************"
+					type="password"
+					required
+					autocomplete="off"
+					bind:value={$form.password}
+				/>
+
+				<InputHelperText
+					>{#if $errors.password}
+						{$errors.password}
+					{:else}
+						At least 8 characters combining numbers and special characters like @!#$%
+					{/if}</InputHelperText
+				>
+			</InputField>
 		</FormFieldGroup>
 
 		<Button type="submit">Sign Up</Button>
