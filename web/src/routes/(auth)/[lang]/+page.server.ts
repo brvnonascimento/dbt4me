@@ -5,8 +5,6 @@ import { superValidate } from 'sveltekit-superforms/server';
 import type { PageServerLoad } from './$types';
 import { get } from 'svelte/store';
 
-export const prerender = 'auto';
-
 export const load: PageServerLoad = async (event) => {
 	const form = await superValidate(event, createUserInputSchema);
 
