@@ -13,13 +13,13 @@ export const load: PageServerLoad = async (event) => {
 	const { locale } = await parent();
 
 	// if you need to output a localized string in a `load` function,
-	// you always need to call `setLocale` right before you access the `LL` store
 	setLocale(locale);
 	// get the translation functions value from the store
 	const $LL = get(LL);
 
 	return {
 		form,
+		locale,
 		copywriting: {
 			title: $LL.login.formHeader.title(),
 			subtitle: {

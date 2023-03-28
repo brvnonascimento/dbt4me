@@ -20,6 +20,7 @@ export const load: PageServerLoad = async (event) => {
 
 	return {
 		form,
+		locale,
 		copywriting: {
 			title: $LL.signUp.formHeader.title(),
 			subtitle: {

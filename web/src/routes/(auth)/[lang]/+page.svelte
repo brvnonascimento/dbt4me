@@ -1,5 +1,4 @@
 <script lang="ts">
-	import LL, { locale } from '$i18n/i18n-svelte';
 	import Button from '$lib/components/Button/Button.svelte';
 	import FormFieldGroup from '$lib/components/Form/Fields/FormFieldGroup.svelte';
 	import InputField from '$lib/components/Form/Input/InputField.svelte';
@@ -39,7 +38,7 @@
 	</h1>
 	<p>
 		{copywriting.subtitle.text}
-		<a href={`${$locale}/signup`}> {copywriting.subtitle.link.text}</a>
+		<a href={`${data.locale}/signup`}>{copywriting.subtitle.link.text}</a>
 	</p>
 
 	<form method="POST" use:enhance>
