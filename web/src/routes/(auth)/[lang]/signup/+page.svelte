@@ -36,7 +36,7 @@
 	</h1>
 	<p>
 		{$LL.signUp.formHeader.subtitle.text()}
-		<a href="/"> {$LL.signUp.formHeader.subtitle.link.text()}</a>
+		<a href="/{$locale}"> {$LL.signUp.formHeader.subtitle.link.text()}</a>
 	</p>
 
 	<form method="POST" use:enhance>
