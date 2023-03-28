@@ -21,7 +21,10 @@
 		"svelte-check": "^3.0.1",
 		"tslib": "^2.4.1",
 		"vite": "^4.2.0",
-		"vitest": "^0.25.3"
+		"vitest": "^0.25.3",
+		"postcss-flexbugs-fixes": "^5.0.2",
+		"postcss-preset-env": "^7.8.2",
+		"postcss-subgrid": "^1.1.0"
 	},
 	"type": "module",
 	"dependencies": {

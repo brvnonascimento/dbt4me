@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '@fontsource/quicksand';
+	import '../styles/breakpoints.css';
 	import '../styles/globals.css';
 
 	import { page } from '$app/stores';

@@ -21,12 +21,12 @@
 			width: min(95vw, 30rem);
 			display: grid;
 
-			& > :global(*) {
-				grid-area: 1 / 1;
+			& :global(form) {
+				padding-top: 1.5rem;
 			}
 
-			:global(form) {
-				padding-top: 1.5rem;
+			& > :global(*) {
+				grid-area: 1 / 1;
 			}
 		}
 	}

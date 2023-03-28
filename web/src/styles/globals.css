@@ -73,7 +73,7 @@
 }
 
 html {
-	font-size: clamp(1rem, 1.5vw, 1.5rem);
+	font-size: clamp(1rem, 1.5vw, 1.65rem);
 }
 
 body {
@@ -156,7 +156,7 @@ input {
 	padding: 0.625rem;
 	transition: background 0.2s ease-in-out;
 
-	&:placeholder {
+	&::placeholder {
 		color: var(--color-orange-800);
 	}
 
