@@ -32,7 +32,7 @@
 >
 	<h1>Sign Up</h1>
 	<p>
-		Not a <strong>psychologist</strong>? <a href="/"><strong>Login</strong></a>
+		Not yet a <strong>psychologist</strong>? <a href="/"><strong>Login</strong></a>
 	</p>
 
 	<form method="POST" use:enhance>
