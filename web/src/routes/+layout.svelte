@@ -20,6 +20,11 @@
 	<title>dbt4me</title>
 </svelte:head>
 
+<nav>
+	<a href={`/`}>en</a>
+	<a href={`/pt-BR`}>pt-BR</a>
+</nav>
+
 <!-- <header>
 	{#if $user?.userId}
 		<form use:enhance method="POST" action="/logout">
@@ -31,3 +36,18 @@
 </header> -->
 
 <slot />
+
+<style lang="postcss">
+	nav {
+		display: flex;
+		justify-content: flex-end;
+		gap: 1rem;
+		position: fixed;
+		top: 0;
+		right: 0;
+
+		& a {
+			padding: 0.5rem 1rem;
+		}
+	}
+</style>

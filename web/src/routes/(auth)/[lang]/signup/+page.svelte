@@ -15,6 +15,8 @@
 	const { form, enhance, errors, constraints } = superForm(data.form, {
 		taintedMessage: `You haven't completed registration. Are you sure you want to leave?`
 	});
+
+	const copywriting = data.copywriting;
 </script>
 
 <div
@@ -32,11 +34,11 @@
 	}}
 >
 	<h1>
-		{$LL.signUp.formHeader.title()}
+		{copywriting.title}
 	</h1>
 	<p>
-		{$LL.signUp.formHeader.subtitle.text()}
-		<a href="/{$locale}"> {$LL.signUp.formHeader.subtitle.link.text()}</a>
+		{copywriting.subtitle.text}
+		<a href="/{$locale}">{copywriting.subtitle.link.text}</a>
 	</p>
 
 	<form method="POST" use:enhance>

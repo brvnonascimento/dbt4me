@@ -18,9 +18,18 @@ export const load: PageServerLoad = async (event) => {
 	// get the translation functions value from the store
 	const $LL = get(LL);
 
-	const title = $LL.title();
-
-	return { form, title, locale };
+	return {
+		form,
+		copywriting: {
+			title: $LL.login.formHeader.title(),
+			subtitle: {
+				text: $LL.login.formHeader.subtitle.text(),
+				link: {
+					text: $LL.login.formHeader.subtitle.link.text()
+				}
+			}
+		}
+	};
 };
 
 export const actions: Actions = {
