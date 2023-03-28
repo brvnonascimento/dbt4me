@@ -1,4 +1,5 @@
 <script lang="ts">
+	import LL, { locale } from '$i18n/i18n-svelte';
 	import Button from '$lib/components/Button/Button.svelte';
 	import FormFieldGroup from '$lib/components/Form/Fields/FormFieldGroup.svelte';
 	import InputField from '$lib/components/Form/Input/InputField.svelte';
@@ -7,32 +8,36 @@
 	import { expoInOut } from 'svelte/easing';
 	import { fly } from 'svelte/transition';
 	import { superForm } from 'sveltekit-superforms/client';
+
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 
 	const { form, enhance, errors, constraints } = superForm(data.form, {
-		taintedMessage: `You haven't completed registration. Are you sure you want to leave?`
+		taintedMessage: null
 	});
 </script>
 
 <div
 	in:fly={{
-		x: '100%',
+		x: '-100%',
 		easing: expoInOut,
 		duration: 500,
 		opacity: 0
 	}}
 	out:fly={{
-		x: '100%',
+		x: '-100%',
 		easing: expoInOut,
 		duration: 500,
 		opacity: 0
 	}}
 >
-	<h1>Sign Up</h1>
+	<h1>
+		{$LL.login.formHeader.title()}
+	</h1>
 	<p>
-		Not yet a <strong>psychologist</strong>? <a href="/"><strong>Login</strong></a>
+		{$LL.login.formHeader.subtitle.text()}
+		<a href={`${$locale}/signup`}> {$LL.login.formHeader.subtitle.link.text()}</a>
 	</p>
 
 	<form method="POST" use:enhance>
@@ -43,7 +48,6 @@
 				<input
 					name="email"
 					placeholder="example@mail.com"
-					autocomplete="off"
 					bind:value={$form.email}
 					{...$constraints.email}
 				/>
@@ -51,10 +55,8 @@
 				<InputHelperText isInvalid={!!$errors.email}
 					>{#if $errors.email}
 						{$errors.email}
-					{:else}
-						We'll never share your email with anyone else.
-					{/if}</InputHelperText
-				>
+					{/if}
+				</InputHelperText>
 			</InputField>
 
 			<InputField>
@@ -64,21 +66,18 @@
 					name="password"
 					placeholder="****************"
 					type="password"
-					autocomplete="off"
 					bind:value={$form.password}
 					{...$constraints.password}
 				/>
 
-				<InputHelperText isInvalid={!!$errors.password}
+				<InputHelperText isInvalid={!!$errors.email}
 					>{#if $errors.password}
 						{$errors.password}
-					{:else}
-						At least 8 characters combining numbers and special characters like @!#$%
 					{/if}
 				</InputHelperText>
 			</InputField>
 		</FormFieldGroup>
 
-		<Button type="submit">Sign Up</Button>
+		<Button type="submit">Login</Button>
 	</form>
 </div>
